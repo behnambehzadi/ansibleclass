@@ -1,0 +1,11 @@
+---
+- name: first playbook 
+  hosts: linuxservers
+  become: true
+
+  tasks:
+- name: Create file
+  ansible.builtin.file:
+      path: /root/testfile.txt
+      state: touch
+      mode: '0755'
