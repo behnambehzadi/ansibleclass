@@ -1,5 +1,6 @@
 ---
 - name: Flinuxservers
+  hosts: linuxservers
   become: true
 
   tasks:
