@@ -1,0 +1,81 @@
+LAB*: http://4.207.197.213/lab01
+
+
+winget install microsoft.powershell
+
+winget install git.git
+
+winget install Microsoft.VisualStudioCode
+
+winget install Microsoft.AzureCLI
+
+
+sudo su
+
+echo -e "[boot]\nsystemd=true" >> /etc/wsl.conf
+
+
+code --install-extension ms-vscode-remote.remote-wsl
+code --install-extension redhat.ansible
+code --install-extension oderwat.indent-rainbow
+code --install-extension usernamehw.indent-one-space
+
+code lightspeed
+Code Ansible
+
+
+USER=bebe
+
+SubID=$(az account list --query "[].{id:id}" -o tsv)
+
+az ad sp create-for-rbac --name ansible-$USER --role Contributor --scopes /subscriptions/$SubID
+
+{
+  "appId": "cc7869b4-d0cd-487f-beeb-de714aa35ec0",
+  "displayName": "ansible-bebe",
+  "password": "r~r8Q~PIlQCPfK4lKN2I4ANM7YM2WJxLa4OsVb5~",
+  "tenant": "f1630361-7fb9-4000-ae92-6ecef5bb3e77"
+}
+echo $SubID
+526b017d-da0a-41ba-9750-298274aa669d
+
+
+cd
+mkdir .azure
+vi .azure/credentials
+
+[default]
+subscription_id=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+client_id=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+secret=xxxxxxxxxxxxxxxxx
+tenant=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+
+In the file
+
+subscription_id = id from the last command
+
+client_id = appID in the first command
+
+secret = Password in the first command
+
+tenant = tenant in the first command
+
+
+(ansible) [bebe@ansible ansibleclass]$ history
+    1  python --version
+    2  python3 -m venv ansible
+    3  source ansible/bin/activate
+    4  which python
+    5  python --version
+    6  pip3 install --upgrade pip
+    7  pip install ansible
+    8  ansible --version
+
+
+
+
+
+
+
+
