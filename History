@@ -77,5 +77,14 @@ tenant = tenant in the first command
 
 
 
+curl -k -X GET -H "Authorization: Bearer $CONTROLLER_OAUTH_TOKEN" -H "Content-Type: application/json" $CONTROLLER_HOST/api/v2/workflow_job_templates/
+
+
+
+curl -s -k -X GET -H "Authorization: Bearer $CONTROLLER_OAUTH_TOKEN" -H "Content-Type: application/json" $CONTROLLER_HOST/api/v2/workflow_job_templates/ | jq
+
+
+curl -s -k -X POST -H "Authorization: Bearer $CONTROLLER_OAUTH_TOKEN" -H "Content-Type: application/json" --data '{ "extra_vars": {"websiteheader": "Ansible Rocks", "websiteauthor": "Ned Flanders"} }' $CONTROLLER_HOST/api/v2/workflow_job_templates/$ID/launch/
+
 
 
